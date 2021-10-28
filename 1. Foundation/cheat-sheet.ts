@@ -3,28 +3,37 @@
 
 ////////////////////////////    GIT / CLI     //////////////////////////// 
 
-
 /*  
 Most Common Commands:
-man == manual
-pwd
-cd
-ls 
-mkdir
-cp == copy
-rm == remove
-rm -R
-touch == create new empty file
-mv
-echo
-sort
-uniq
-grep
-cat
-git init, clone, status, diff, add, commit, push, fetch, pull
+$ man == manual
+$ pwd
+$ cd
+$ ls 
+$ ls -a  // a for all
+$mkdir
+$ cp  //copy file
+$ rm file1  //remove file
+$ rm -r directory
+// you’ll need to add the -r flag (recursive) to remove all the files and any subdirectories
+$ find /home -name puppies.jpg
+$ touch mysuperduperfile  //creates new file
+$ mv
+$ echo
+$ sort pelda.txt  //there's more options!
+$ uniq
+echo "pelda" > pelda.txt   // ide printeli
+$echo valami új >> pelda.txt   //felülírja a content-et
+$ grep <expression>  //keresés pl history-ban
+git grep <regexp>
+| (pipe) átadni a következő parancsnak
+$ cat - kiolvassa a fájl tartalmát (nem optimális nagyobb fájloknál)
+$ cat cica.txt | sort | uniq > egyediekvagyunk.txt
+$ cat dogfile birdfile
+$ git init, clone, status, add, commit, push, fetch, pull
 .git directory
 .gitignore
 */
+
 
 
 ////////////////////////////    MATRIX     //////////////////////////// 
@@ -213,6 +222,7 @@ function rotateMatrix(matrix: number[][]): number[][] {
             return Math.random() * (max - min) + min;
         }
         //The maximum is exclusive and the minimum is inclusive
+
 
 
 
