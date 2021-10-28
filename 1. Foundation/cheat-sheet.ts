@@ -204,6 +204,8 @@ function rotateMatrix(matrix: number[][]): number[][] {
         //  console.log( jake[prop] );
 
 
+        let commonChars: { [key: string]: number } = {};
+
 
 
         ////////////////////////////    NUMBERS     //////////////////////////// 
@@ -317,6 +319,13 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
         });
 
+
+        test('Animal play() increases hunger by 1', function (t) {
+            const myAnimal: Animal = new Animal();
+            myAnimal.play();
+            t.equal(myAnimal.getHunger(), 51);
+            t.end();
+        });
 
 
 
