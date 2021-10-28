@@ -127,7 +127,29 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
 
 
-    ////////////////////////////    #4 ARRAYS     //////////////////////////// 
+        let fileContent: string[] = [];
+
+        try {
+            fileContent = fs.readFileSync(path, 'utf-8').split('\r\n');
+        } catch (error) {
+            throw 'File does not exist!';
+        }
+
+        let everyGetPost: string[] = fileContent.map((line) => {
+            return line.split('  ')[3];
+        })
+
+
+        return everyIP.filter(onlyUnique);
+
+
+        function onlyUnique(value: any, index: any, self: any) {
+            return self.indexOf(value) == index;
+        }
+
+
+
+        ////////////////////////////    #4 ARRAYS     //////////////////////////// 
 
 
         let characters: string[] = ['Lissy Bennet', 'Mr Darcy', 'Jane Bennet', 'Father', 'the Servant'];
