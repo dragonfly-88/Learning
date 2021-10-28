@@ -1,7 +1,7 @@
 // FOUNDATION CHEAT SHEET //
 
 
-////////////////////////////    GIT / CLI     //////////////////////////// 
+////////////////////////////    #1 GIT / CLI     //////////////////////////// 
 
 /*  
 Most Common Commands:
@@ -36,7 +36,7 @@ $ git init, clone, status, add, commit, push, fetch, pull
 
 
 
-////////////////////////////    MATRIX     //////////////////////////// 
+////////////////////////////    #2 MATRIX     //////////////////////////// 
 
 
 function rotateMatrix(matrix: number[][]): number[][] {
@@ -88,7 +88,7 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
 
 
-    ////////////////////////////    FILE IO     ////////////////////////////
+    ////////////////////////////    #3 FILE IO     ////////////////////////////
 
 
     const fs = require('fs');
@@ -127,19 +127,20 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
 
 
-    ////////////////////////////    ARRAYS     //////////////////////////// 
+    ////////////////////////////    #4 ARRAYS     //////////////////////////// 
 
 
-    let characters: string[] = ['Lissy Bennet', 'Mr Darcy', 'Jane Bennet', 'Father', 'the Servant'];
+        let characters: string[] = ['Lissy Bennet', 'Mr Darcy', 'Jane Bennet', 'Father', 'the Servant'];
         let nameLengths = characters.map(function (item, index, array) {
             return item;
         }
 
 
             .map()
-    let mapped: number[] = numbers.map(x => x === 8 ? x = 4 : x = x);
+        let mapped: number[] = numbers.map(x => x === 8 ? x = 4 : x = x);
 
-    .concat()
+        
+            .concat()
 
         let pap: string = 'papaya mamaya papayabla papaya';
         console.log(pap.replace('papaya', 'mamaya')); //csak az 1. találatot cseréli le
@@ -148,10 +149,25 @@ function rotateMatrix(matrix: number[][]): number[][] {
         let strArray: string[] = text.split(' ');
 
 
+            .filter()
+
+        const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+        const result = words.filter(word => word.length > 6);
+        // expected output: Array ["exuberant", "destruction", "present"]
+
+
+        function isBigEnough(value) {
+            return value >= 10
+        }
+
+        let filtered = [12, 5, 8, 130, 44].filter(isBigEnough)
+        // filtered is [12, 130, 44]
 
 
 
-        ////////////////////////////    OBJECTS     //////////////////////////// 
+
+        ////////////////////////////    #5 OBJECTS     //////////////////////////// 
 
 
         let cat = { type: 'cat', name: 'Bob', favouriteMeal: 'Whiskas' };
@@ -226,7 +242,7 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
 
 
-        ////////////////////////////   CLASSES    //////////////////////////// 
+        ////////////////////////////   #6 CLASSES    //////////////////////////// 
 
         'use strict';
 
@@ -270,7 +286,7 @@ function rotateMatrix(matrix: number[][]): number[][] {
 
 
 
-        ////////////////////////////   UNIT TEST    //////////////////////////// 
+        ////////////////////////////   #7 UNIT TEST    //////////////////////////// 
 
         /*
 
