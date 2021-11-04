@@ -1,3 +1,40 @@
+/*
+Write a method evaluateFeedback which can read and parse a file containing information 
+about weekly feedback from apprentices about a mentor.
+
+The method takes a fileName as a parameter.
+
+The mentor is rated in 4 different metrics, those are respectively 
+(matReview, presSkills, helpfulness, explanation) separated with 1 space:
+
+m = matReview
+p = presSkills
+h = helpfulness
+e = explanation
+m p h e   // this is just an info line which is not in the actual file
+1 3 5 3   // this line is an answer from an apprentice
+2 3 4 3   // this is another response
+...
+The method should return a map/dictionary containing the average rating (in each metric) of the mentor.
+
+If the file is not found, it should write the following to the console: File not found: filename
+If the file is empty the output values should be 0.
+
+
+Example
+Example file can be found here. (responses.txt)
+
+Output
+
+{
+  "matReview": 2.25,
+  "presSkills": 4.0, // or 4 is fine as well
+  "helpfulness": 4.5,
+  "explanations": 3.75
+}
+*/
+
+
 'use strict';
 
 import * as fs from 'fs';

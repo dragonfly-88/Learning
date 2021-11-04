@@ -1,10 +1,3 @@
-
-// instanceof
-// if (factory.parkingscape[i] instanceof ExplosiveCar)
-
-
-// weekly-feedback-evaluator exercise
-
 'use strict';
 
 
