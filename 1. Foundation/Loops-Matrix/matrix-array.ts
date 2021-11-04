@@ -1,6 +1,8 @@
 //multidimensional arrays
 // tömbön belül tömbök = mátrixok (2D-s tömbök pl. mint egy Excel tábla)
 
+import { text } from "stream/consumers";
+
 const matrix: number[][] = [
     [550, 220, 330],
     [110, 450, 600],
@@ -114,3 +116,27 @@ matrix[j][i]
 [7, 8, 9]   [i:0, j:2] [i:1, j:2] [i:2, j:2]
 
 */
+
+
+
+function textfromMatrix(matrix: string[][]): string {
+    let output: stirng[] = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (i % 2 !== 0 && j % 2 !== 0) {
+                output.push(matrix[i][j]);
+            } else if (i % 2 === 0 && j % 2 === 0) {
+                output.push(matrix[i][j]);
+            }
+        }
+    } return output.join();
+}
+
+console.log(textfromMatrix([
+    ["h", "p", "e"],
+    ["k", "l", "a"],
+    ["l", "m", "o"]
+]));
+
+// expected output: "hello"
