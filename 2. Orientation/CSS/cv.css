@@ -1,0 +1,72 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Gemunu Libre', sans-serif;
+	font-size: 1.2rem;
+}
+.wrapper {
+	margin: 0 15% 0 15%;
+}
+.header {
+	background: url('assets/anakin.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 10% 25% 2% 25%;
+	font-family: 'Gemunu Libre', sans-serif;
+	letter-spacing: 1px;
+	color: #232323;
+	margin-bottom: 5%;
+}
+.header h1 {
+	font-size: 3rem;
+}
+.header .name {
+	font-size: 5rem;
+	color: #323232;
+}
+.content {
+	padding: 0 25% 0 25%;
+	margin: 5% 0 5% 0;
+}
+.about {
+	line-height: 25px;
+	letter-spacing: 2px;
+}
+.quote {
+	padding: 0 20% 0 20%;
+}
+blockquote {
+	background: #555555;
+	color: #fff;
+	margin: 0;
+}
+blockquote h1 {
+	display: inline-block;
+	padding: 5% 0 5% 5%;
+	font-size: 3.5rem;
+	width: 89%;
+	margin: 0;
+}
+.idezojel {
+	font-size: 100px;
+	display:inline-block;
+	vertical-align: top;
+}
+
+.uppercase {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 10%;
+}
+h3, h4, .subtitle {
+	padding: 0;
+	margin: 1% 0 1% 0;
+}
+ul li {
+	list-style-type: square;
+	line-height: 30px;
+}
+hr {
+	border-top: 5px solid #000;
+}

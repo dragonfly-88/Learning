@@ -1,0 +1,69 @@
+body {
+    background: url(assets/background.png);
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: initial;
+    background-attachment: fixed;
+    font-family: 'Courier New', Courier, monospace;
+}
+.padding {
+    padding: 0 10% 0 10%!important;
+}
+@font-face {
+    font-family: 'Yanone';
+    src: url(assets/YanoneKaffeesatz-VariableFont_wght.ttf);
+  }
+
+.separator {
+    letter-spacing: 10px;
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+}
+
+h1,h2,h3,h4,h5 {
+    color: #2b2727;
+    font-family: Yanone, 'Courier New';
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #ff0099!important;
+}
+.bg-dark {
+    background-color: #333!important;
+}
+hr {
+    background-color: #000000;
+    border-top: 5px dashed #000;
+    width: 10%;
+    margin: auto;
+}
+
+#desc {
+    color: #ff0099;
+}
+.nav-link {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+#about {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+#about h1 {
+    margin-bottom: 2%
+}
+#about h3 {
+    margin-bottom: 1.5%;
+}
+#wiki {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#wiki h2 {
+    text-align: center;
+    margin-bottom: 5%;
+}
+#wiki h3 {
+    margin-bottom: 2%;
+}
