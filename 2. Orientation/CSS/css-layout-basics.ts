@@ -362,8 +362,55 @@ vagy individálisan meghatározzuk, és akkor az arányok számítanak:
 
 .two{
     background: red;
-    flex-grow: 2;
+    flex-shrink: 2;
 }
+
+
+
+// Flex Wrap
+
+amikor eléri a min. width-t, sortöréssel új sorba megy az elem
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+// Flex Basis
+
+.box{
+    flex-basis: 500px;   // ez jobb mint a min-width, mert utána nem kell jobbra scroll-olni, amikor kicsinyítünk
+}
+
+
+comment:
+flex-basis determines not width but rather main size of an item.
+In your example when flex-direction has value row it's true (flex-basis==width) but for flex-flow:
+column (flex-basis==height) since main axis  lays out vertically.
+
+
+
+// Creating a Menu with Flexbox
+
+@media screen and (min-width: 768px) {    // olyankor alkalmazza a leírtakat, amikor nagyobb device-on nézik
+
+    nav ul{
+        display: flex;
+        justify-content: center; // vagy: flex-end (jobbra rakja), flex-start, space-around, space-between
+    }
+
+    nav li{
+        flex: 1 1 0;
+    }
+}
+
+
+
+
+
+
 
 
 
