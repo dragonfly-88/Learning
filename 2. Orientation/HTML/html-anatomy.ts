@@ -66,7 +66,7 @@
 
 
 
-// different tags
+// some tags
 
 <strong>  // bold text
 <small>   // slightly smaller text
@@ -74,6 +74,48 @@
 <sub>     // text below the line
 <sup>     // text above the line
 <pre>     // pre-format the text
+<div>     // (division, divide content)
+
+
+
+// ID's and Classes
+
+<div id="header">
+<div id="navigation">
+<div id="types-of-fish">
+<div id="about-us">
+
+<div class="contact-method"
+
+<div id="comments">
+<div class="single-comment">
+
+
+
+// HTML Lists
+
+- unordered lists <ul> + <li>
+- ordered list <ol> + <li>
+- definition list <dl> + <dt> + <dd>
+
+<ul>
+<a href="contact.html">Contact us</a>
+<a href="whatever.html">Whatever</a>
+<a href="whatever.html">Whatever</a>
+</ul>
+
+
+<ol>
+<li>Step one</li>
+<li>Step two</li>
+    <ol>
+    <li>Step 2.1</li>   // Sublist
+    </ol>
+<li>Step three</li>
+</ol>
+
+
+
 
 
 */

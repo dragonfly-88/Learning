@@ -39,7 +39,19 @@ li { declaration }  // li tags
 
 
 
-// Your First Web Page
+// ID's & Classes
+
+Selectors: classes, ID
+ID: only 1 ID! unique identifier to each element (eg. header)
+
+
+
+* {  // egész doksira igaz
+    font family: Arial;
+}
+
+
+
 
 
 
