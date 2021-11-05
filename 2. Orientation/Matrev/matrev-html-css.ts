@@ -62,6 +62,8 @@ h1 {
 
 // margin - border - padding - content
 
+margin: 0 0 20px 0 // top, right, bottom, left
+
 p {
     margin-top: 0px;
     margin-bottom: 0px;
