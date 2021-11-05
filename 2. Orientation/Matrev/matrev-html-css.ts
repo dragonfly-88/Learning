@@ -42,10 +42,11 @@ semantic tags -- pl. <header>, <article>, <nav>, <main> - nem a megjelenítődé
 GOOD PRACTICE: külön CSS fájlba mentjük el a styleguide-ot
 
 
-// h1: selector, color: syntax, blue: érték
+// h1: selector, color: property, blue: value (declaration)
 
 h1 {
     color: blue;
+    (vagy: color: rgb(100, 144, 0);)
 }
 
 
@@ -56,11 +57,47 @@ h1 {
 </head>
 
 
+// fentről lefele halad, ha felülírjuk, az alsó fog számítani (pl. stílus)
 
 
+// margin - border - padding - content
+
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline;      // block helyett inline kiemelés
+}
 
 
+h1 {
+    width: 30%
+    display: inline-block;
+}
 
 
+// képméret megváltoztatása
+
+img {
+    width: 300px;
+    height: 150px;
+}
+
+
+// webfonts
+
+p {
+    font-family: Arial;
+}
+
+// le tudunk tölteni betűkészletet, v használhatjuk a Google Fonts-okat   +Select this style
+
+p {
+    font-family: 'Ephesis', Arial;  // ha nincs neked Ephesis betűtípusod, akkor használd az Arial-t
+}
+
+
+body {
+    background-color: white;
+}
 
 */
