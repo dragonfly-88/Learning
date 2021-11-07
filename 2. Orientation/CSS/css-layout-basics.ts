@@ -404,8 +404,41 @@ column (flex-basis==height) since main axis  lays out vertically.
     nav li{
         flex: 1 1 0;
     }
-}
 
+
+// Creating a Nested Menu with Flexbox
+
+    <ul class="social">
+        <li><a href="class="fb">Facebook</a></li>
+        <li><a href="class="tw">Twitter</a></li>
+        </ul>
+        </nav>
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    // placing Twitter logo on menu
+
+    a.tw{
+        background: url(img/tw.png) no-repeat center;
+        background-size: 80%;
+    }
+
+    .social a{
+        text-indent: -10000px;
+    }
+
+    .social{
+        max.width: 80px;
+    }
+
+
+    nav ul.social{
+
+    }
 
 
 
