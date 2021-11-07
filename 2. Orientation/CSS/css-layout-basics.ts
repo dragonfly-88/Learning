@@ -406,7 +406,7 @@ column (flex-basis==height) since main axis  lays out vertically.
     }
 
 
-// Creating a Nested Menu with Flexbox
+// Creating a Nested Menu with Flexbox   // ezt majd megnézni még 1x!
 
     <ul class="social">
         <li><a href="class="fb">Facebook</a></li>
@@ -431,23 +431,31 @@ column (flex-basis==height) since main axis  lays out vertically.
         text-indent: -10000px;
     }
 
-    .social{
-        max.width: 80px;
-    }
 
 
-    nav ul.social{
+// Axis
 
-    }
+    main axis -->
+    cross axis 
+    - ezek megcserélődnek coulumn-nál 
 
+    flex-flow: row / column-reverse;
 
-
-
-
-
+    // we can apply properties that will just effect the main or the cross axis
 
 
 
+// Align Items on the Cross Axis
+
+    justify-content: center;    // applies to main axis
+    align-items: center;    // applies to cross axis
+
+
+
+// Element Order
+
+    .one{order: 0;}
+    .two{order: 1;}
 
 
 
