@@ -1,5 +1,9 @@
 /*
 
+git bash belépés: $ winpty mysql -u root -p
+
+
+
 json (javascript object notation) - olyan object, ahol a key mindig string
 
 user = {

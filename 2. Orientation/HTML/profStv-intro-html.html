@@ -1,0 +1,127 @@
+<!--
+
+HTML is a markup language 
+
+<tags> or elements
+<p id="bob">         id is the attribute, "bob" is the value --> 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Title</title>
+</head>
+<body>
+    <h1>Heading</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+
+<ul>
+    <li>list item</li>
+    <li>list item</li>
+    <li>list item</li>
+</ul>
+
+<p>lorem ipsum</p>
+
+<p>
+    <a href=http://www.google.com>Link</a>
+</p>
+<p><img src="avatar.png" alt="alternate text"></p>
+    
+</body>
+</html>
+
+
+<!-- Basic HTML Layout  -->
+
+<body>
+    <header>Company Name, Logo, Website Name, nav(above)</header>
+    <nav>
+        <ul>
+        <li><a href="index.html">Home</a>
+            <a href="index.two.html">Two</a>
+            <a href="index.threehtml">Three</a></li>
+        </ul>
+    </nav>
+  
+    <main>  // vagy amit még láthatunk: <div class='main'></div>
+        <section>
+            <h2>Sub heading</h2>
+            <p>Paragraph</p>
+            <article></article>
+        </section>
+        <section></section>
+    </main>
+    <aside>Side bar, secondary content</aside>
+
+    <footer>Othe info or nav, list of links</footer>
+</body>
+
+
+
+<!-- Paths and URLs in HTML  -->
+
+
+<head>
+    <base href="http://127.0.0.1:56198/video-pages/" target="_self" /> 
+
+    <!-- ha ezt megadom, akkor ehhez fogja viszonyítani az elérést!! -->
+    <!--
+    ABSOLUTE PATHS
+    http://
+    /file.html
+    
+    RELATIVE PATHS
+    file.html
+    ./file.html
+    ../file.html
+    
+    http://127.0.0.1:56198/index.html
+    http://127.0.0.1:56198/video-pages/html-paths.html
+    
+    -->
+
+
+    <!--non-breaking space -->
+
+    <main>
+        <p>Lorem ipsum dolor sit amet, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/><br/>consectetur adipisicing elit. Reiciendis eligendi rem debitis quo dolore nemo, cupiditate iste provident, veritatis dolor maiores ab sequi nobis odit! Rem expedita modi perspiciatis laudantium!</p>
+    </main> 
+
+
+    ul{
+        list-style-position: inside;
+        list-style-type: square;
+        outline: 1px solid red;
+        margin: 1rem;
+    }
+    ol{
+        list-style-position: inside;
+        list-style-type: upper-roman;
+        outline: 1px solid red;
+        margin: 1rem;
+    }
+    ol ol{
+        list-style-type: lower-roman;
+    }
+    dl{
+        list-style-position: inside;
+        outline: 1px solid red;
+        margin: 1rem;
+    }
+    dt{
+        font-weight: 700;
+    }
+    dd{
+        text-indent: 2rem;
+        font-weight: 100;
+    }
+
+
+    
