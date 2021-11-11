@@ -59,6 +59,19 @@ multi-tenant architecture - organizations have their own instances
 
 Main Instance -- Backup Instance
 
+AHA - Advanced High Availability Architecture
+- 2 különböző adatközpontba is le van másolva az adatod
+- 7 naponta van teljes biztonsági mentés (hard disc)
+- minden nap van differencial mentés -- nem az egész instance, csak a változtatások, amiket 
+az előző ilyen mentéshez képest csináltál - köv. teljes mentésig így 
+- 4 hétig tárolja a backupot
+- lehet version control-os mentést is csinálni SN-ban 
+
+
+Multi-instance vs multi-tenant
+egy instance, külön domainok alatt elérhető
+
+Instance - cégé, fejlesztői, tesztelői (félig cég csinálhatja)
 
 
 - User Interface and Branding
@@ -86,7 +99,7 @@ ITIL, ADMIN, KNOWLEDGE ADMIN, APPROVER
 
 Components:
 User, Group, Role
-better to assign roles to groups instead of individuals
+better to assign roles to groups instead of individuals!! 
 
 
 Base System Roles - Admin, Approver_user, Itil, Catalog_admin
@@ -95,7 +108,7 @@ Base System Roles - Admin, Approver_user, Itil, Catalog_admin
 
 #5 Getting started with the Now Platform user interface
 
-Elevate User -- ????
+Elevate Roles -- ha vmit nem tudunk szerkeszteni, akk érdemes pl megkérni
 Impersonate User
 
 
@@ -127,6 +140,22 @@ ITIL user = fulfiller
 incident - problem (optional) - change request (optional)
 
 CMDB - configuration management db
+
+
+
+#10 Navigate to a record or module using a URL
+
+Users can navigate to a record or module directly by using a URL. 
+This topic explains the URL schema by which the system renders pages.
+
+
+nézet: listák / form (New) --> record módosítása, új hozzáadása
+
+
+App Studio Engine - ben tudunk dolgozni
+--> Create Application
+- Global -- egész instance-ben elérhető lesz, hatnak a többi tevékenységre, ált. nem ez kell nekünk, hanem a Scope --> adott app
+
 
 
 
