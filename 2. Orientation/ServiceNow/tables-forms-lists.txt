@@ -1,0 +1,146 @@
+#1 Table Overview
+https://www.youtube.com/watch?v=a7Nrz0OU8XM
+
+NOW platform is built on relational database
+
+automated service model, one user inerface
+
+table - collection of records
+field corresponds to a column
+record 1 -- row 1
+
+each field has 3 attributes: label, dictionary name, value
+
+label: pl user id, name
+dictionary name: User ID -- sys_user.user_name; name -- sys_user.name  stb // admins and developers use these
+values: actual database. values may be empty (null)
+
+reference field - brings value from another table
+
+system dictionary - right click field label (avail. for devs)
+
+List views
+default list view may not necessarily show every fiels 
+it can be configured by sys admins
+and can be personalized by individual users
+
+system tables (admins see this)
+Parent class - Child class
+
+Base Class - extended but not extending another table
+Task table --> Incident, Problem, Change child tables
+
+
+Core Tables: tables that exist in the base system
+Custom Table - created by sys admin and not exist in the Base system
+
+Source Table / Target Table
+
+Schema Map -- shows relations
+use the checkboxes! 
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+#2 Securing Table Records
+https://developer.servicenow.com/dev.do#!/learn/learning-plans/rome/new_to_servicenow/app_store_learnv2_securingapps_rome_securing_table_records
+
+For all scoped application tables, the Create access controls option is selected and is read-only. 
+The combination of Access Controls plus roles provides the minimum amount of security to protect a table's records against unauthorized access. 
+In the default case, only users with the table's role can create, read, update, and delete table records.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#3 What is a sys_id
+https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/table-administration/concept/c_UniqueRecordIdentifier.html
+
+Unique record identifier (sys_id)
+A unique 32-character GUID (Globally Unique ID), called a Sys ID (sys_id) identifies each record in an instance.
+every record created in every table in every instance in the world has a unique identifier
+
+The sys_id is not meant to show as a field on a form or as a column in a list. To learn more, see:
+https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0690876
+
+
+1. Get the sys_id from the header bar
+Users can locate the sys_id of a record using the header bar.
+
+Navigate to the record.
+Right click the header bar and select Copy URL.
+The sys_id is inside of the URL, after the parameter sys_id=. For example, the following is a URL for an Incident:
+
+https://<instance name>.service-now.com/nav_to.do?uri=incident.do?sys_id=9d385017c611228701d22104cc95c371
+Therefore the sys_id is 9d385017c611228701d22104cc95c371.
+
+
+2. Get the sys_id from a script
+Users can locate the sys_id of a record using a script.
+
+The sys_id value of a record can be found in a business rule (or any other server-side JavaScript) by dot-walking from the GlideRecord.
+var id = current.sys_id;
+The sys_id of a record can be found in client-side JavaScript using g_form.getUniqueValue() as shown in the following example.
+function onLoad() {
+    var incSysid = g_form.getUniqueValue();
+    alert(incSysid);
+}
+
+
+3. Get the sys_id from the URL
+
+Users can locate the sys_id of a record by viewing the URL.
+
+Since the sys_id of a record is always part of the URL for a link to that record, it is possible to retrieve the sys_id by viewing the URL.
+
+View the sys_id in the information bar of the browser by hovering over a link to the record.
+For example, an Incident with the following URL: https://<instance name>.service-now.com/nav_to.do?uri=incident.do?sys_id=23dc968f0a0a3c1900534f399927740e, has this sys_id: 23dc968f0a0a3c1900534f399927740e.
+Example sys_id
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#4 Getting started with lists
+https://www.youtube.com/watch?v=hRROviBISrg
+
+lists - filter / view
+
+Create favourite (e.g. Incidents)
+Personalize List Columns
+don't change first column of the list! (number)
+sort by clicking column name
+you can save filters! - can also make it visible to users
+ilters - Edit personal filters
+
+Searching with wildcards  
+
+*email - contains 
+%1 - ends with 1
+Search for text -- start with uppercase
+
+
+Column name right click - Show Visual Task Board
+- presents tasks in a list
+
+
+right click any value -- copy sys_id ---> to make REST / API calls with it
+
+Assign Tag 
+
+reference icon (i) -- review 
+
+Activity Stream - EKG-szerű jel jobb fent
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#5 Getting started with forms
+https://www.youtube.com/watch?v=t6Y7tu_uhrE
+
+Forms - Displayed in the content frame
+Used to create, view, modify cpecific records in data tables
+
+Incident Form, Knowledge Form, etc.
+
+preview the record (icon)
+
