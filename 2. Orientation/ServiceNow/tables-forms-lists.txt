@@ -144,3 +144,4 @@ Incident Form, Knowledge Form, etc.
 
 preview the record (icon)
 
+u can drag and drop file attachment into header within an incident
