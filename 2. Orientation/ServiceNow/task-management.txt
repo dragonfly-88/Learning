@@ -1,0 +1,114 @@
+#1  What is ITIL? 
+https://www.youtube.com/watch?v=3naC4w_3sPs
+
+
+#2  Incident Management Overview
+https://www.youtube.com/watch?v=ryxjWBOq3sQ
+
+
+incident Management - managing the lifecycle of incident
+ITSM - IT Service Management
+instancename@servicenow.com -- report incident or by phone or by submitting INC
+--> assigned to group 
+--> create a problem to analyze common problems
+root problem closed -- all related INC's closed
+
+
+Service Portal
+
+assign --> state: automatically In Progress
+
+by re-writing the short descr - we might find the related KB article
+
+
+#3  Problem Management
+https://www.youtube.com/watch?v=Ux1fub8KzT0
+
+
+- find out root problem(s) // root cause analysis
+- change request possible
+- prevent future similar error
+- workaround (temp solution until problem resolved)
+- (related links: Communicate Workaround)
+
+
+#4  Change Management
+https://www.youtube.com/watch?v=3f_v7HqRgM0
+
+chane = addition, modification or removal of anything that could have an effect on IT services
+
+standard, emergency, normal change
+
+propose a standard change template
+change mgmt request always needs approvals
+
+
+
+#5  Task Management
+https://www.youtube.com/watch?v=UlHjurrXk_w
+
+
+tasks can be assigned to users or groups
+--> track action & Progress
+approvals, assignment rules, SLA - if not met, treated as 'breached' (?)
+service tables for all these
+
+Task assignment
+task - parent table
+
+Ways of Task assignment:
+- manual
+- assignment rule, 
+- predictive intelligence (uses ML)
+- custom rules or script
+
+Effective Task mgmt
+- work notes & comments
+- Activity Stream
+
+
+#6  Visual Task Boards (VTB)
+
+~ Trello
+
+freeform - create ur own or add from from/list
+flexible - load task from a task table 
+guided - it will even update the table record, filter option
+
+
+------------------------------------
+
+matrev
+
+Task tábla - nem szoktunk direktbe új record-okat felvenni IDE, hanem a reference táblákba
+
+Service Catalog Request Item
+
+workflow - task completion lépései 
+
+System UI > Process Flow >> Flow Formatters >> New -- új workflow ciklus megadása táblán
+
+default value!! state-eknél meg tudjuk nézni
+
+
+My Work >> saját taskok assigned to me
+
+Self Service >> My Approvals 
+
+Assignment Rule >> New 
+
+lehet instance-nek emailt írni   dev123455@servicenow.com
+System Log >> Emails
+
+Visual Board - context menu >> Show Visual Task Board
+
+
+
+Q: hogyan csinálunk egy új táblát úgy, hogy csak bizonyos reference columns-t mutasson?
+hogyan érdemes megjeleníteni a táblát, mikor kb csak 5-6 oszlop tud látszódni egyszerre?
+>> personalize 
+Configure >> List Layout
+
+
+
+SLA definitions
