@@ -122,16 +122,63 @@ Use as UI Policy on client
 
 #6 matrev
 
-// System Definition >> UI Data Policy
+// System Definition >> UI Policy
 client-side form logic
 egy táblára vonatkozik, ui policy actions-t tudunk létrehozni
 opció: Convert this to Data Policy
 konfigurációs dolgok, nem kell annyira scriptelni hozzá
+ha kiválasztom a táblát, az összes formjára érvényes lesz a változtatás!!!
+Reverse if false -- client script beállításoknál nekünk kell gondoskodnunk erről, de itt ez benne van a beállításokban
+Clear the field value
+
 
 // System Definition >> Data Policy
+akkor használjuk, ha a sima felhasználók elől le akarunk tiltani opciókat, de a netes kommunikációnak meg akarjuk engedni 
+Use as UI Policy on Client -- mind a két oldalon aktív lesz (ui policy + data policy)
+visible opciót nem tudja, csak mandatory / read-only
+SOAP -- protokoll
+
+
+// mikor melyiket használjuk?
+data policy - automatizált eszköznek engedje használni, usernek ne
+UI Policy -- user oldala - html-t állítgatja
+Data Policy -- server oldala
+
 
 // System Definition >> Client Script
 type eg. onLoad, onChange, onCellEdit, onSubmit
+Reverse if false -- client script beállításoknál nekünk kell gondoskodnunk erről!!!
+onSubmit !! - validáció
+
+var state = g_form.getValue("state");
+
+if (state == '103') {
+    alert('blabla');
+}
+
+
+if (g_form.getDisplayBox("assignment_group").value === "Database") {
+    g_form.addInfoMessage("blabla");
+}
+
+jslog(g_form.getDisplayBox("assignment_group"));
+
+var serviceDisplay = g_form.getDisplayBox("business_service").value;  // getDisplayBox - reference fields-nél
+g_form.showFieldMsg("business_service", serviceDisplay, "warning")
+
+if(g_form.getValue("impact") === '3') {
+    g_form.setMandatory("service_offering", true);
+} else {
+    g_form.setMandatory("service_offering", false);
+}
+
+
+var problem = g_form.getValue("short_description");
+ if( problemStatement.includes("emoji pic")) {
+     alert("Bad boy!");
+     return false;   // ne lehessen submit-olni
+ }
+
 
 
 // Classes, methods
@@ -160,3 +207,6 @@ g_user  .hasRole() .hasRoles() .userID  .getFullName()
 g_form : https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideFormAPI
 G_user: https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideUserAPI
 Client scripts: https://docs.servicenow.com/bundle/rome-application-development/page/script/client-scripts/concept/client-scripts.html
+
+
+
