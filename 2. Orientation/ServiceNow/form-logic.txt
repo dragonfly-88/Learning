@@ -1,0 +1,121 @@
+#1 Client Scripts in ServiceNow
+https://www.youtube.com/watch?v=AqUY98OToGY&list=PLzTvAeLiW8Adn4h1ipj56LACysGZKspm1&index=2
+
+client side code (user's browser)
+sys_script_client
+
+Types: OnLoad, OnSubmit, OnChange, OnCellEdit
+
+UI where it can be applied: desktop, mobile, portal
+
+Actions:
+- making fields visible/hidden
+- showing alert popup on the form
+- setting the field values
+- show a popup for confirmation of an Action
+- validate fields in list view
+
+Client Script Form (new record)
+- here u can only write Script
+
+API's used in client scripts
+Mostly used methods: g_Form, g_User, glideAjax
+
+System Definition >> Client Scripts >> new
+
+
+
+#2 OnLoad Client Script in ServiceNow
+https://www.youtube.com/watch?v=7QF0C6D9Cr0&list=PLzTvAeLiW8Adn4h1ipj56LACysGZKspm1&index=3
+
+// What is OnLoad Client Script
+runs when user opens the form and before they can enter data on the form
+normally used to set default values or showing message or popup
+function onLoad() - populated automatically under Script
+
+// Use Cases
+showing P1 message alert if the priority of incident is P1
+setting logged  user in the caller field on incident form
+showing message at the top if user is VIP user
+
+New Script > type: onLoad
+var pri = g_form.getValue('priority');
+if (pri == '1') {
+    alert("This incident is a P1 incident");
+}
+
+function onLoad() {
+
+    if(g_form.isNewRecord()) {
+    
+    var uSYSID = g_user.userID;
+    var uValue = g_user.getFullName();
+
+    g_form.setValue('caller_id', uSYSID, uValue);
+    }
+}
+
+
+
+#3 OnChange Client Script in ServiceNow
+https://www.youtube.com/watch?v=iAmrt-75sBA&list=PLzTvAeLiW8Adn4h1ipj56LACysGZKspm1&index=5
+
+it runs when a field value changes on the form
+type: onChange
+
+function onChange() {
+
+    if(isLoading || newValue === '') {
+        return;
+    }
+
+    if(newValue == '3') {   // state = On hold
+        g_form.setMandatory('work_notes', true);
+    }
+
+    alert(control);  
+    alert(oldValue); 
+    alert(newValue); 
+    alert(isLoading); 
+    alert(isTemplate);
+}
+
+
+// category changes, user sees msg
+alert("You are changing category from " + oldValue + " to " + newValue);
+
+
+
+#4 Builder | Using UI policies for dynamic forms
+https://www.youtube.com/watch?v=ssK5kaSpIDQ
+
+UI policy - you can make fields hidden or appear only due to some condition
+
+
+
+#5 UI Policy and Data Policy in ServiceNow
+https://www.youtube.com/watch?v=oBMvydB1oGo
+
+// what'S the difference btw UI policy and Data policy
+
+UI Policy: make fields mandatory, visible and read-only on the form, hide&show related list. runs on form (client side)
+
+Data Policy: make fields mandatory & read-only in the back end at server level (!), runs on server side. 
+there's no way to write Script
+import sets, web service, mobile UI
+
+
+// Modules
+
+System UI >> UI Policies
+System Policy >> Data Policies
+
+
+// Data Policy
+
+Apply to import sets
+Apply to SOAP
+Use as UI Policy on client
+
+
+
