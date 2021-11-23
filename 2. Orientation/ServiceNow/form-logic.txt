@@ -118,4 +118,45 @@ Apply to SOAP
 Use as UI Policy on client
 
 
+------------------------------------------------------------------------------------------
 
+#6 matrev
+
+// System Definition >> UI Data Policy
+client-side form logic
+egy táblára vonatkozik, ui policy actions-t tudunk létrehozni
+opció: Convert this to Data Policy
+konfigurációs dolgok, nem kell annyira scriptelni hozzá
+
+// System Definition >> Data Policy
+
+// System Definition >> Client Script
+type eg. onLoad, onChange, onCellEdit, onSubmit
+
+
+// Classes, methods
+
+g_form   // GlideForm
+.getValue()  .setValue()
+.addInfoMessage()
+.showFieldMsg()
+.clearMessages()
+.setMandatory()
+.setDisplay()
+.setReadOnly()
+.setDisabled()
+.removeOption()
+
+
+alert()
+confirm()
+jslog()
+
+g_user  .hasRole() .hasRoles() .userID  .getFullName()
+
+
+// Links
+
+g_form : https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideFormAPI
+G_user: https://developer.servicenow.com/dev.do#!/reference/api/quebec/client/c_GlideUserAPI
+Client scripts: https://docs.servicenow.com/bundle/rome-application-development/page/script/client-scripts/concept/client-scripts.html
