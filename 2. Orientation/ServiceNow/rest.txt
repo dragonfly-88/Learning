@@ -1,0 +1,126 @@
+#1 REST API concepts and examples
+
+API = Applocation Programming Interface - programmes talking to each other
+REST API -- Representational State Transfer
+call from client to server, u get data back
+graph API (fb) -- graph.facebook.com/youtube
+http request methods: e.g. get & post
+
+
+#2 JSON
+
+Javascript Object Notation
+data representation format
+commonly used for APIs and Configs
+lightweight, easy to read, integrates easily with most languages
+JSON types: strings, numbers, booleans, null, arrays, objects
+user.json 
+{"name": "Kyle", 
+"favouritenNumber": 3, 
+"isProgrammer": true, 
+"hobbies": ["hiking", "programming", "cats"], 
+"friends": []
+}
+
+
+#3 What is REST API Explorer in ServiceNow
+
+3rd party applications sending request to SN via REST API
+SN APIs: 
+- Table API 
+- Attachment API
+- Email API
+- Aggregate API
+
+REST Explorer: u can test requests for integration
+
+Web Services >> REST API Explorer
+
+
+
+#4 REST API Inbound Request Security
+
+- user specifically for Inbound Request
+- restrict table from Web Service Call
+- CORS (Cross Origin Resource Sharing)
+
+
+#5 How to create Scripted REST API in ServiceNow
+
+System Web Services >> Scripted Web APIs
+REST >> REST API Explorer
+
+Transferring data, done over http/s
+can be done with the help of XML, JSON
+system makes an endpoint - go to this location in the internet, ask for this information, and u get something returned
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+#6 matrev
+
+API használat/készítés - gyakori, az alkalmazásainkban használt adatok elérhetőek legyenek más alkalmazások számára
+API-t lehet használni egyszerűsített kérések elkészítésére
+RapidAPI - gyűjtőoldal API-kra
+
+ServiceNow modulok:
+- REST >> REST API Explorer - SN-ban létező APIkat lehet ezzel próbálgatni
+Postman - File > New > HTTP Request
+- REST >> CORS Rules  // honnan engedje meg a server a lekéréseket (másik böngésző, másik kliens is tudjon lekérést indítani)
+- Scripted Web Services >> Scripted REST APIs   (table: sys_ws_operation)
+New > Resource > New
+
+http://example.com/src/index.html?display=false&messsage=hello#id
+
+URL részei: protokoll (http), domain (host) + elérési út, vége: ? után: resource, #id: fragment
+
+kliens küldi a kérést a servernek, server válaszol
+
+
+Request részei: 
+1. Request Line: URL, method, http mely verziója (plain text, string struktúra)
+2. Header(s): kulcs-érték párok, encoding, authentication (pl BASIC user:pass), content type (pl application/json),  stb stb metainfók
+3. Body: {"message": "Hello"}  (minden más egyéb a kliens részéről)
+
+kliens szándéka lehet:  GET POST PUT DELETE PATCH 
+(http methods mdn)
+
+Response részei:
+1. Response Line: url, http vers, Status Code
+2. Headers
+3. Body
+
+Status Code:  200 OK, 307, 404, 503
+server válasz: API
+
+
+// ServiceNow példa
+REST API Explorer > Value - Select a Table > Incident
+xml / json (json-t jobban szeretjük, újabb standard)
+
+endpoint - milyen resource-ot próbálok elérni (pl incident tábla) -- Resources
+
+Scripted REST API modul >> New
+
+var name = request.pathParams.name;
+
+response.setStatus(200);
+response.setBody("Hello " + name + ", this is the Reddit API.");
+
+Query Parameter >> pl. "id"
+
+var postId = request.queryParams.id;
+var postGr = new GlideRecord("u_reddit_post");
+postGr.get(postId);
+
+response.setBody({post: postGr.getValue("u_description")});
+
+var sys_id = request.queryParams.sys_id
+response.setBody({
+    called_with_id: sys_id, 
+    message: "hello"
+})
+
+
+/post{sys_id}
