@@ -166,5 +166,11 @@ while(gr.next()) {
 }
 
 
+// insert new 
 
+gr.setValue("user_name", "new_user");
+gr.setValue("first_name", "Caroline");
+gr.setValue("last_name", "Wozniacki");
+gr.update()   // ez menti be
 
+response.setBody({ message: user created});
