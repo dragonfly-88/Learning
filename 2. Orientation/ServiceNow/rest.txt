@@ -124,3 +124,47 @@ response.setBody({
 
 
 /post{sys_id}
+
+-------------------------------------------------------------------------------------------
+
+## recap // Glide Records
+
+//get one user from the users table
+
+var gr = new GlideRecord("sys_user");  // ez még az adatbázishoz nem fér hozzá!!! 
+gr.get("sys_id_record");  // get - amikor 1 rekordra vagyok kíváncsi!!!!!!!!!!!  vagy: gr.get("name", "");
+gr.query();
+
+response.setBody({rowCount: gr.getRowCount(), 
+user: gr.name}); // vagy: gr.getValue("name");
+
+
+//get all users from the table
+
+var gr = new GlideRecord("sys_user");
+gr.query(); // kérje le az összeset
+gr.next(); // ezzel lépünk bele az első rekordba!!
+
+var arr = [];
+
+while(gr.next()) {
+    arr.push(gr.getValue("name"));
+response.setBody({userNames: arr});
+}
+
+
+// get all active=false users
+
+var gr = new GlideRecord("sys_user");
+gr.addQuery("active", false);
+gr.query();
+
+var arr = [];
+while(gr.next()) {
+    arr.push(gr.getValue("name"));  
+    response.setBody({userNames: arr});
+}
+
+
+
+
