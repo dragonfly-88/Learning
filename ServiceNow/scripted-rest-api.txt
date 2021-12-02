@@ -58,6 +58,7 @@ system makes an endpoint - go to this location in the internet, ask for this inf
 
 ------------------------------------------------------------------------------------------------------------------------
 
+
 #6 matrev
 
 API használat/készítés - gyakori, az alkalmazásainkban használt adatok elérhetőek legyenek más alkalmazások számára
@@ -78,6 +79,7 @@ URL részei: protokoll (http), domain (host) + elérési út, vége: ? után: re
 kliens küldi a kérést a servernek, server válaszol
 
 
+
 Request részei: 
 1. Request Line: URL, method, http mely verziója (plain text, string struktúra)
 2. Header(s): kulcs-érték párok, encoding, authentication (pl BASIC user:pass), content type (pl application/json),  stb stb metainfók
@@ -93,6 +95,7 @@ Response részei:
 
 Status Code:  200 OK, 307, 404, 503
 server válasz: API
+
 
 
 // ServiceNow példa
@@ -174,3 +177,4 @@ gr.setValue("last_name", "Wozniacki");
 gr.update()   // ez menti be
 
 response.setBody({ message: user created});
+

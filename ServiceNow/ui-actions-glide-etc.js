@@ -1,16 +1,17 @@
 #1 UI Actions Part
 https://www.youtube.com/watch?v=_G8X9bi8spE&t=610s
 
-
+/*
 System Definition -- UI Actions 
 
 Related links may be useful here
 
 dont put 'delete' buttons near 'update' button and always ask for confirmation
+*/
 
 // creating a button to terminate an employee:
 
-Script:
+//Script:
 current.active=false;
 current.state="terminated";
 current.update();
@@ -26,12 +27,13 @@ current.instructor = gs.getUserID();
 current.udate();
 gs.addInfoMessage(current.name + 'instructor is now ' + gs.getUserDisplayName());
 
-
+/*
 ha olyan action-t akarsz, amihez ne kelljen record-ot kiválasztani, de úgy is működjön:
 Action name - change to start with sysverb_
-sysverb_cancel // saves the form without the mandatory fields
+sysverb_cancel // saves the form without the mandatory fields 
+*/
 
-----------------------------------------------------------------------------------------------------------------
+/****************************************************************************************************** */
 
 #2 ServiceNow GlideRecord
 https://www.youtube.com/watch?v=hAm0_-ak65c
@@ -98,7 +100,7 @@ if (incGr.get('number', 'INC0000059')) {
 System Definition - Business Rules
 
 
-----------------------------------------------------------------------------------------------------------------
+/********************************************************************************************************************** */
 
 
 #3 Business Rules
@@ -133,27 +135,26 @@ Global Variables of B.rule
 current - previous - g_scratchpad - gs
 
 
-----------------------------------------------------------------------------------------------------------------
 
 #4 Script Debugger
 https://www.youtube.com/watch?v=drzwGy9OtbY
 
 
-Script debugger from navigation
-role -- script_debugger
+// Sript debugger from navigation
+// role -- script_debugger
 
 
-----------------------------------------------------------------------------------------------------------------
+/**************************************************************************************************************** */
 
 
 matrev
 
 
-studio - create new UI Action (vagy UI Actions - Create New)
-Context menu - configure - ui actions
+// studio - create new UI Action (vagy UI Actions - Create New)
+// Context menu - configure - ui actions  
 
-Action name - ami a gombra, linkre ki lesz írva!!!
-comments - többi fejlesztő számára
+// Action name - ami a gombra, linkre ki lesz írva!!!
+// comments - többi fejlesztő számára
 
 gs.addInfoMessage('Csámi ' + {gs.getUserName()});
 action.setRedirectURL(current);  // ott marad, ahol van
@@ -177,7 +178,7 @@ while(gr.next()) {    // boolean, amíg van következő sor a megtalált rekordo
 } 
 
 
-dictionary entry -- record > label jobbklikk - configure dictionary
+// dictionary entry -- record > label jobbklikk - configure dictionary
 
 
 // más példa: 
@@ -198,11 +199,12 @@ action.setRedirectURL(current);
 
 current.assigned_to = gs.getUser().sys_id;
 
-
+/*
 business rules - szerveroldali script, alapműveleteken fut le (hozzáadás, delete, update...)
 itt nem lesz UI gomb pl. (>> ui action)
 
 advanced tab >> code
+*/
 
 
 function executeRule(current, previous) {
@@ -214,7 +216,7 @@ function executeRule(current, previous) {
       current.setAbortAction(true);
       }
 
-  })(current, previous);
+  } (current, previous);
 
 
   // updated by --> irja ki a nevet
@@ -228,7 +230,7 @@ function executeRule(current, previous) {
 
     current.setValue("description", user + " has modified this record");
 
-  })(current, previous);
+  } (current, previous);
 
 
 // vannak-e változások?
@@ -237,11 +239,11 @@ function executeRule(current, previous) {
     if(current.short_description.changes()) {
     gs.addInfoMessage("Something changed");
     } 
-  }) (current, previous);
+  } (current, previous);
 
 
 
-js log -- akkor íródik a console-ba, ha dev rendszerben vagyunk, amúgy csak a belső log-ba
+// js log -- akkor íródik a console-ba, ha dev rendszerben vagyunk, amúgy csak a belső log-ba
 
 
 gs.info() - belső console log
@@ -260,8 +262,6 @@ function client_uia_demo() {
 
 // debugging client scripts material
 
-
-
 GlideRecord {
   number: row0.number
   caller: row0.caller
@@ -277,7 +277,3 @@ base.addOrCondition()
 while (gr.next()) {
   gs.addInfoMessage(gr.number);
 }
-
------
-feladathoz:
-sys_id: 9d385017c611228701d22104cc95c371

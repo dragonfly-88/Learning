@@ -1,0 +1,61 @@
+System Security >> ACL
+sys_properties.list
+sys_m2m.list  (many to many relationship)
+
+// many to many table:
+https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/table-administration/task/t_CreateAManyToManyRelationship.html
+
+system properties:
+https://servicenowguru.com/system-definition/working-with-system-properties/
+
+
+ACL rule
+remember to elevate role >> security admin
+Access Controls >> New >> Role/Condition/Script
+
+
+// Advanced Script:
+
+if(gs.hasRole('itil') && !gs.hasRole('itil_restricted'))
+   {
+   answer = true;
+}
+else {
+   answer = false;
+}
+
+
+current.setAbortAction(true) - ezzel tudom megakadályozni, h lefuttassa
+
+var gr = new GlideRecordSecure("");  // betartja az ACL szabályokat
+gr.query();
+
+while(gr.next()) {
+    gr.deleteRecord();
+}
+
+
+kiértékelés: field-től tábla felé
+
+
+// sys_properties: globális változók
+testre tudjuk szabni a rendszer működését ezekkel
+elérhető a felhasználóinknak, kiegészítése a Business Rule-oknak
+
+name: acl_demo.minimum_message_length
+
+var message = current.getValue("u_message");
+gs.getProperty("acl_demo.minimum_message_length");
+current.setAbortAction(true);
+
+
+
+//advanced tables
+
+one-to-many
+many-to-many
+
+related links configure > new
+
+sys_m2m.list 
+New >> 

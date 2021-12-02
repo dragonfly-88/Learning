@@ -1,0 +1,24 @@
+Knowledge > Administration > Knowledge Bases
+Knowledge > Articles > Import Article
+also: Service Portal > Knowledge Base
+
+Knowledge Bases > IT 
+Managers field - can add managers here
+
+Workflow eg. draft - approve - publish
+Related Lists - Knowledge, Can Read, Can Contribute
+
+Article: `kb_knowledge` 
+Knowledge base : `kb_knowledge_base` 
+Feedback: `kb_feedback` 
+Category: `kb_category`
+The out of the box workflow being used is Knowledge - Approval Publish, Knowledge - Approval Retire. Search in the workflow editor.
+
+
+typical roles:
+knowledge, knowledge_manager, knowledge_admin stb
+https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/knowledge-management/reference/r_KnowledgeRoles.html
+
+
+Incident > Knowledge opció kipipálásával is létre lehet hozni egy article-t
+
