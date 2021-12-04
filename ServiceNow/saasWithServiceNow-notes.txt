@@ -1,0 +1,751 @@
+
+/**********************   TYPES OF SCRIPTS   **********************/
+
+
+- need integration w other apps
+- need addition to out of box functionality
+- need to do automation
+
+When?
+- show an alert if field value changes & push the value of a reference field value
+- copy comments from parent to child incident
+- dont resolve incident if child tasks are open
+- show assignment group values as per the assignm groups
+- push the field value on change of other field value
+
+
+You should NOT do scripting (--> configuration):
+- make a field read-only
+- hide fields (ui action)
+- set the value of a field when assignm group changes (business rule)
+
+
+Types of Scripting:
+- client side scripting // load on UI, on browser
+- server side scripting  // fetch values from DB, change, update data
+- mid server scripting  // integrate w other apps
+
+
+1. Client Side Scripting
+
+- Ajax
+- UI Policy
+- Service Catalog UI policy
+- UI Actions
+- Client Scripts
+- UI context menus
+- validation scripts
+
+2. Server Side Scripting
+
+- ACL
+- Business Rules
+- Ajax server scripts (calculate, function calls - script include)
+- Script Includes
+- Script Actions
+- Transform Map
+- UI Actions
+- Workflow Editor
+- UI Context Menus
+
+
+
+GLIDE Class Overview
+(js classes exposed by Glide)
+- you can work w table using scripts with the help of these APIs
+- you can perform DB operations
+
+1. Server Side -- Glide Record, GlideElement, GlideDateTime, GlideAggregate, GlideSystem
+2. Client Side -- GlideAjax, GlideUser, GlideMenu, GlideList2, GlideForm, GlideDialog Window
+
+
+Syntax Editor functionalities eg. Script Debugger
+
+
+
+/*********************    CLIENT SIDE SCRIPTING    *********************/
+
+
+executes within user's browser, is to manage forms and form fields
+Examples:
+- show an alert when form loads
+- validate form data
+- show/hide choices of fields
+- hide/show section
+- set a value on the form
+- confirmation on submit
+
+
+Where to Use it?
+- Ajax
+- UI Policy
+- Client Scripts
+- UI Actions
+- Service Catalog UI policy
+- UI context menus
+- validation scripts
+
+
+APIs:
+GlideAjax, GlideUser, GlideMenu, GlideList2, GlideForm, GlideDialog Window, GlideDocumentV3, GlideFlow
+
+
+GlideUser
+- used to get information about logged in user!!
+- object to access it: g_user
+- used only in Client!
+- syntax: g_user.<glideUserMethod()>
+
+
+GlideAjax
+- used to call server side code from Client
+- var ga = new GlideAjax(<Script Include>)
+
+
+GlideForm
+- customize form and perform activities on forms
+- object: g_form
+- syntax: g_form.<GlideFormMethod>(<Parameter>)
+
+
+
+Use Cases
+
+//onload client script
+g_form.addInfoMessage('Welcome to the table');
+
+var yourName = g_user.getFullName();
+g_form.addInfoMessage('You have logged in as " + yourName);
+
+//show alert on P1 - onchange client script 
+//var a = g_form.getValue('priority');
+if(newValue == '1') {
+alert('You are about to save a P1 Incident');
+
+
+
+/*********************    SERVER SIDE SCRIPTING     *********************/
+
+
+executes on server and db
+
+Examples:
+- update a field when record is inserted
+- setting a value on a field when parent record is updated
+- validate role of logged in user
+- generate events
+- send email / notifications
+
+
+- ACL
+- Business Rules
+- Script Includes
+- Transform Map
+- Workflow Editor
+
+
+APIs: (classes)
+Glide Record, GlideElement, GlideDateTime, GlideAggregate, GlideSystem
+
+
+GlideRecord
+- used for db operations
+- used only in server side
+- syntax: create instance of GlideRecord class
+- var gr = new GlideRecord(<TableName>);
+
+
+GlideSystem
+- used to get information about system and current logged in user
+- referred by variable 'gs'
+- syntax: gs.<GlideSystemMethod()>
+
+
+GlideAggregate
+- used to perform aggregation operation on DB
+- extension of the GlideRecord class
+- provides db aggregation(COUNT, SUM, MIN, MAX, AVG) queries
+- syntax: var agg = new GlideAggregate('incident');
+
+
+
+Use Cases
+
+var gr = new GlideRecord('incident');
+gr.addActiveQuery(); // pulls active incidents
+gr.setLimit(5);
+gr.query();
+while(gr.next()) {
+gs.log('The incident number is: ' + gr.number);
+}
+
+
+
+/*********************    CLIENT SCRIPT     *********************/
+
+
+- used to manage forms and forms fields in real time
+- is executed in the browser
+
+When to Use Client Script
+- show the alert when form loads
+- show message when field value changes
+- change a field value when another fields changes on the form
+- hide/show choices of a field
+- hide/show a section
+
+
+Types:
+- onLoad
+- onChange (has parameters - control, oldValue, newValue, isLoading(boolean), isTemplate)
+- onCellEdit (list view, field value changes on a list, parameters sysIds, table, oldValues, newValue, callback)
+- onSubmit
+
+
+Use Cases
+
+//set the value of caller field with current logged in user when form loads
+onLoad Client Script
+
+var user = g_user.userID; 	//get sys_id of logged in user
+g_form.setValue('caller_id', user);
+// like this, it will also change the caller if it's already set and you open an existing incident :S
+
+-->
+if (g_form.isNewRecord) {
+var user = g_user.userID; 	
+g_form.setValue('caller_id', user);
+}
+
+
+//Show an alert when priority changes to P1
+onChange client script
+
+if (newValue == '1') {
+alert('You're about to submit a P1 incident');
+}
+
+
+
+/*********************    GLIDE FORM     *********************/
+
+
+API Used in Client Script 
+
+Glide Form (g_form)
+
+addDecoration() - on incident form, show user icon when contact field is filled in
+
+if(newValue !== '') {
+g_form.addDecoration('caller_id', 'icon-user-selected');  // adding icon
+}
+
+Always choose Field name !!!
+
+addErrorMessage()
+addInfoMessage()
+
+//var incPrio = g_form.getValue('...')
+
+if(newValue == '1') {
+g_form.addInfoMessage) 
+
+
+addOption()  // new choice can be added to the form
+onLoad client script
+
+g_form.addOption('contact_type', 'portal', 'Portal');  // field, name, label
+
+
+clearOptions()  // remove all choices from field
+
+clearValue()  // on incident form - remove text from short desc
+
+g_form.clearValue('short_description');  //onload kitörli a más beírt short desc-t, DE amíg nem mentünk rá, DB-ben ott van az eredeti
+
+
+disableAttachments()    // a feltöltés lehetőségét blokkolod ezzel
+
+onChange client script
+var state = g_form.getValue('state');   
+if (state == '6') {			// when incident is resolved, you won't be able to attach docs
+g_form. disableAttachments();
+}
+
+
+flash()    // if prio is P1, Flash should be visible
+
+g_form.flash('priority', 'blue', 5);
+
+
+getActionName()    // get the value of the action
+
+
+getBooleanValue() 
+
+
+getControl()    // get control of the html element of that field
+
+var a = g_form.getControl('short description');
+a.style.color = 'red';
+
+
+getDecimalValue()   // itt még van egy csomó: https://www.youtube.com/watch?v=yd1gPTK4BRc&t=958
+
+
+
+
+/*********************    GLIDE USER     *********************/
+
+
+API Used in Client Script
+
+//onload script
+//var a = g_user.firstName;
+var a = g_user.getFullName();
+alert('The first name of user is: ' + a);
+
+
+var userRole = g_user.hasRole('itil);
+if (userRole == true) {
+alert ('You're an itil user');
+}
+
+
+var id = g_user.userID;
+alert('Sys_id of current user is: ' + id);
+
+
+
+
+/*********************    DEBUG CLIENT SCRIPTS     *********************/
+
+
+Javascript Log
+Response Time Indicator
+Try/Catch of JS
+Field Watcher
+
+
+// new onload client script
+
+jslog('This is the demo for debugging');   // enable under Settings
+
+// ezt be lehet szúrni a sorok közé, h lásd, lefut-e az adott sorig 
+
+
+try{
+if( newValue == '1') {
+alert('This is the demo for debugging');
+} 
+} catch(err){
+jslog('LOG MESSAGE: We have an error: ' + err);
+}
+
+
+
+
+/*********************    BUSINESS RULES     *********************/
+
+
+- runs when record is displayed, inserted, updated or deleted or when table is queried
+- to change values in the fields when specific condition is met
+- runs on server side
+- it runs where record is accessed like list, form or web services
+
+
+
+Role conditions - BR for specific roles
+
+Add message - msg to be populated during the action
+
+Abort action --> stop user's action
+
+Advanced --> options Delete, Query
+Query -- checking several incidents e.g.
+
+
+WHEN
+After - after form submition, record is updated in the DB
+Before - form is submitted but before record is updated in the DB
+Async - after records are inserted, modified or queried
+Display - runs when data is read from the DB and before presenting to the user 
+(mostly used with g_scratchpad)
+
+WHAT Operation
+Insert 
+Update
+Delete
+Query
+
+
+GLOBAL VARIABLES OF BR'S
+
+current   //stores current record fields
+previous   //old values daved previously
+g_scratchpad  //fetch field value from DB on a client
+gs 
+
+
+USE CASES
+
+//when assigned to filled, state should be "in progress"
+
+on Insert + Update
+
+Condition: Assignment group is not empty AND
+Assigned to is not empty AND
+Assigned to changes
+-->
+SATE to In Progress AND
+Incident State to In Progress
+
+
+//if cust tries to delete record, check if incident has parent record, if yes, abort action
+
+Before Delete
+Condition:
+Parent Incident IS NOT EMPTY 
+--> Abort Action
+
+
+
+// When you create a story, it should automatically create 5 related scrum tasks
+
+/after insert
+
+for(i = 0; i < 5; i++) {
+
+var type = i.toString();
+var gr = new GlideRecord('rm_scrum_task');
+gr.initialize();
+gr.type = type;  // így mindegyiknek más type-ja lesz (values: 1, 2, 3, 4)
+gr.short_description = 'Scrum Task ' + type;
+gr.parent = current.sys_id;
+gr.insert();
+}
+
+
+// Close Request item (parent) if Catalog task is closed
+
+// u write script on Catalog Task
+
+//after update
+
+var gr = new GlideRecord('sc_task');
+gr.addActiveQuery();
+gr.addQuery('request_item', current.request_item);  // parent
+gr.query();
+if(!gr.next()) {   // if I dont get any record
+var gri = new GlideRecord('sc_req_item');
+gri.addQuery('sys_id, current.request_item');
+gri.query();
+if (gri.next()) {
+gri.state = '3';   // closed complete
+gri.update();
+}
+
+
+
+
+/*********************    G_SCRATCHPAD     *********************/
+
+
+fetching the value from the client
+
+g_scatchpad.cLocation = current.caller_id.department;   // display business rule
+
+var department = g_scratchpad.cLocation;    // client script onLoad
+alert('The caller's department is ' + department);
+
+
+
+
+/*********************    GLIDE SYSTEM     *********************/
+
+
+Object to access system level information
+provides number of methods
+runs on server side
+
+getUser(), getUserID(), hasRole(), etc etc
+
+gs.addInfoMessage('getUser: ' + gs.getUser());    //com.glide.sys.User@12345
+gs.addInfoMessage('getUserID: ' + gs.getUserID());   // sys_id
+gs.addInfoMessage('getUserDisplay: ' + gs.getUserDisplayName());  // System Administrator
+gs.addInfoMessage('getUserName: ' + gs.getUserName());    // admin 
+
+
+
+
+/*********************    GLIDE RECORD    *********************/
+
+
+Object containing records
+Used for database operations
+Executed on Server Side
+(similar to SQL commands:)  fetch, update, delete some records stb)
+
+
+//New business rule
+
+var gr = new GlideRecord('incident');
+var state5 = gr.addQuery('state', '5');
+state5.addOrCondition('state', '6')
+//gr.addQuery('short_description', 'test');
+
+var countR = gr.getRowCount();
+while(gr.next()) {
+gs.addInfoMessage('The incident number: ' + gr.number + gr.state.getDisplayValue() + 'row count: ' + countR);
+
+gr.get(current.sys_id);  // fetch single record!!!
+
+//gr.addEncodedQuery('active=true^caller_id=46d96f57a9fe198101947a9620895886');     //copies the filter   
+
+
+// aggregation -- GlideAggregate() does the trick better than getRowCount()
+
+var agg = new GlideAggregate('incident');
+var agg.addAggregate('COUNT');
+agg.query();
+var countR = 0;
+if (agg.next()) {
+countR = agg.getAggregate('COUNT');
+}
+gs.addInfoMessage('The number of records: ' + countR);
+
+
+
+
+/*********************    GLIDE AJAX     *********************/
+
+
+Script Include:
+- store JS functions to execute on Server
+- can be re-used in different scripts
+- can be called from Client Script! (glideAjax)
+- need to be called from another script!!
+
+Client Callable checkbox
+
+
+Types of Script Includes:
+
+A. Classless 
+- only ne resuable function
+- used to run on server side
+
+B. Extend a Class
+- adds a functionality to another class
+- can be called from Client side
+
+C. Utils
+- new class
+- multiple functions
+- can be called from Client side
+
+
+
+// Classless Script Include
+
+Name: demoTest
+>> automatically creates class, but you can remove it
+
+
+function demoTest(a,b) {
+
+var c = a+b;
+gs.log('The addition of ' + a + ' + ' + b + ' is ' + c);
+
+}
+
+//+ new Business Rule to call that script!
+
+Advanced, before Update
+
+var a = 10;
+var b = 90;
+
+demoTest(a,b);		// call Script Include function
+
+>> we update an incident, go to System Log, and it's there!
+
+
+
+// Script Include with Class
+
+var demoTestClass = Class.create();
+demoTest.prototype = {
+initialize: function() {
+},  
+
+demoTest: function(a,b) {		// watch the definition of new function!!!
+var d = a+b;
+gs.log('The addition of ' + a + ' + ' + b + ' is ' + c);
+},
+
+type: 'demoTestClass'
+};
+
+
+//+ business rule to check it:
+
+var a = 10;
+var b = 90;
+var v = new demoTestClass();
+v.demoTest(a,b);
+
+
+
+//Calling Script Include from Client Script
+
+var ga = new GlideAjax('<name of script include>);
+ga.addParam('sysparm_name', '<Name of function created in Script Include>');
+ga.addParam('sysparm_<Parameter name>', <Value to be stored in parameter>);  	// you want to send this to Script Include
+ga.getXMLAnswer(<Callback Function>);  						// Asynchronous call to Script Include
+function <Callback function>(response) {		// returns the data from server and stores it in answer variable
+var answer = response.responseXML.documentElement.getAttribute('answer');  // response.property
+<Script to use value stored in answer>
+}
+
+
+// you create a GlideAjax variable in which you have to call Script Include, 
+// then you add Parameter to call the function mentioned in Script Include
+// then you also add a Parameter which you want to send to Script Include
+// whatever Parameter you send to your Script Include, it returns that data after using that Parameter 
+// and that result is captured in this variable called answer
+
+
+
+// Example 
+// Script Include >> New
+Name: demoTestAjax  >> class created
+
+var demoTestAjax = Class.create();
+demoTestAjax.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+
+demoTestFunction: function() {
+var userid = this.getParameter('sysparm_user');  // we define what we wright after 'sysparm_'
+var gr = new GlideRecord('sys_user');
+gr.addQuery('sys_id', userid);
+gr.query();
+if (gr.next()) {
+var uName = gr.first_name + ' ' + gr.last_name;
+return uName;
+},
+ type: 'demoTestAjax'
+});
+
+//AbastractAjaxProcessor can be found in Script Includes, it can be extended
+
+
+//Client Scripts >> New
+
+Name: demoTestAjax
+Type: onChange
+Feld Name: Caller
+
+var ga = new GlideAjax('demoTestAjax');
+ga.addParam('sysparm_name', 'demoTestFunction');  // has to be string!!!
+ga.addParam('sysparm_user', newValue);
+ga.getXML(callBack);
+
+function callBack(response) {
+var answer = response.responseXML.documentElement.getAttribute('answer');
+alert(answer);
+}
+
+// Result basically: You are getting SERVER VALUE on the Client!
+// this is how you call a server side code on the client - GlideAjax is the best approach
+
+
+
+//Example: on Problem form, there should be a field Problem Owner,
+//and user can only select those users in this field who has problem_manager role
+
+
+Problem table >> Form Layout >> create field Problem Owner (reference - user table) >> rákerül a formra
+
+// Script Include >> New
+// Name: prbFunctions
+
+var prbFunctions = Class.create();
+prbFunctions.prototype = {
+initialize: function() {
+},
+
+getprbmanagers: function() {
+var pmanagers = '';
+var gr = new GlideRecord('sys_user_has_role');
+gr.addQuery('role', 'b2626hbdbd767625524hhgh');   // problem manager role sys_id-ja
+gr.query();
+while(gr.next()) {
+pmanagers = pmanagers + ',' + gr.user;
+}
+var result = 'sys_idIN' + pmanagers;
+return result;
+
+,type: 'prbFunctions'
+};
+
+
+// now we go to Problems table, open one, rightclick Problem Owner > Dictionary
+// Advanced view > Use reference qualifier - chose Advance > Reference qual fieldbe írjuk:
+
+javascript:new prbFunctions().getprbmanagers()
+
+
+
+//Example: When user selects a Configuration Item on Incident form, then 
+// assignment group should automatically set to Support group of selected CI on the client
+
+
+// Configuration Items: cmdb_ci.list
+
+// new Script Include, Name: setSupportGorup
+
+getCI: function() {
+var cmdbci = this.getParameter('sysparm_ci');
+var gr = new GlideRecord('cmdb_ci');
+gr.addQuery('sys_id', cmdbci);
+gr.addNotNullQuery('support_group');
+gr.query();
+if (gr.next()) {
+ return gr.support_group;
+},
+
+type: 'setSupportGroup'
+});
+
+
+
+// new onChange Client Script
+// Name: Set Assigment Group, Field Name: Configuration Item
+
+
+var ga = new GlideAjax('setSupportGroup');
+ga.addParam('sysparm_name', 'getCI');
+ga.addParam('sysparm_ci', newValue);
+ga.getXML(populateGroup);
+
+function populateGroup(response) {
+var answer = response.responseXML.document.documentElement.getAttribute('answer');
+g_form.setValue('assignment_group', answer);  // answer: sys_id of Support Group
+}
+
+
+
+
+/*********************    WORKFLOW     *********************/
+
+
+what is a Workflow?
+- Automated sequence of activities
+- Supports repeatable steps or actions
+- Performs activities as per activity defined in sequence
+e.g. in Catalog 
+
+
+Baseline Workflows  
+
+// folyt köv. 
