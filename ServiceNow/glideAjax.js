@@ -236,3 +236,33 @@ return {correct: true};
 },
 type: "Script_include_name"
 });
+
+
+
+//Example5
+// onLoad client script
+if (newValue === '') {
+return;
+}
+
+var ga = new GlideAjax('client included api name');
+ga.addParam('sysparm_name', 'countTodos');
+ga.addParam('sysparm_sysid', newValue);
+ga.getXMLAnswer( function (result) {	// majd ebben fogjuk elérni a result-ot
+if (result === 3) {
+g_form.addInfoMessage('Warning, you're having 3 todos already');
+});
+
+
+
+// onSubmit client script 
+var newValue = g_form.getValue('assigned');
+
+var ga = new GlideAjax('client included api name');
+ga.addParam('sysparm_name', 'countTodos');
+ga.addParam('sysparm_sysid', newValue);
+ga.getXMLWait();  // ez nem asynchron, ezért wait // Answer-el nem várunk a válaszra
+var result = ga.getAnswer();
+if (result == 5) {
+return false;
+}
