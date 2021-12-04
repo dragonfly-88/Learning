@@ -22,7 +22,19 @@ B. Extend a Class
 C. Utils
 - new class
 - multiple functions
-- can be called from Client side  */
+- can be called from Client side 
+
+
+Ezzel szerver oldali Script Include-okat lehet hívni kliens
+oldalról, asyncron módon lehet kezdeni valamit az eredményével.
+
+
+Ha a kliensnek olyan adatot kell betöltenie, ami nincs rajta a formon, 
+vagy a Servicenow/on kívülről jön, és a g_scratchpad nem elég, 
+pl mert onChange scriptben kell elhoznunk az adatot.
+- Client Script
+- UI Policy
+*/
 
 
 
@@ -199,3 +211,28 @@ var answer = response.responseXML.document.documentElement.getAttribute('answer'
 g_form.setValue('assignment_group', answer);  // answer: sys_id of Support Group
 }
 
+      
+
+//Client script
+var ga = new GlideAjax("Script_include_name")
+ga.addParam("sysparm_name", "functionToCall");
+ga.addParam("sysparm_custom", "customParam");
+ga.geXMLAnswer(callback);
+//callback-ban kezeljük a választ
+function callback(answer) {
+//az answer sokszor egy objektum string formában
+answer = JSON.parse(answer);
+g_form.setMandatory("field_name", answer.correct);
+}
+
+
+//Script include
+var Script_include_name= Class.create();
+Script_include_name.prototype = Object.extendsObject
+(global.AbstractAjaxProcessor, {
+functionToCall: function () {
+var param = this.getParameter("customParam");
+return {correct: true};
+},
+type: "Script_include_name"
+});
