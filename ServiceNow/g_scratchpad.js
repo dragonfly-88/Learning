@@ -15,6 +15,8 @@ Itt használjuk:- Client Script (onLoad, onChange, onSubmit)
 Itt állítjuk be: - Business Rule - display
 */
 
+/*****************************    USE CASES    *****************************/
+
 //Display Business rule example:
 
 ;(function executeRule(current, previous /*null when async*/) {
@@ -41,7 +43,7 @@ var welcome = gs.getProperty("async_form.welcome_message")
 
 dosomething(g_scratchpad.valami) // onLoad client script
 
-//Example
+//Example2
 
 g_scratchpad.isVIP = current.caller_id.vip // display business rule
 
@@ -51,16 +53,19 @@ if (g_scratchpad.isVIP == true) {
   alert("Caller is a VIP user")
 }
 
-//Example
+//Example3
 
 g_scatchpad.cLocation = current.caller_id.department // display business rule
 
 var department = g_scratchpad.cLocation // client script onLoad
 alert("The caller's department is " + department)
 
-// Dispay business rule-ban
+//Example4
+
+// Dispay business rule
 g_scratchpad.filed_name = "information from the system"
-//Client script-ben
+
+//Client script
 if (g_scratchpad.filed_name === "information from the system") {
   //do something
   g_from.showFieldMsg("name", g_scratchpad.filed_name)
