@@ -1,2 +1,2 @@
 # Learning
-Learning materials &amp; notes
+Junior Software Development Course & Own Notes
