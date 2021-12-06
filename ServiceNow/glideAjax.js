@@ -266,3 +266,7 @@ var result = ga.getAnswer();
 if (result == 5) {
 return false;
 }
+
+
+// FONTOS:
+// getXMLWait() is not available to scoped applications. Instead use the getXML() method.
