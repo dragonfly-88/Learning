@@ -1,0 +1,12 @@
+what is a Workflow?
+- Automated sequence of activities
+- Supports repeatable steps or actions
+- Performs activities as per activity defined in sequence
+e.g. in Catalog 
+
+
+Baseline Workflows  
+
+Menu >> Workflow Editor
+
+// more coming up later...
