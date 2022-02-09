@@ -1,0 +1,387 @@
+{
+  "system": {
+    "sys_user_role": true,
+    "agent_assist_recommendation": true,
+    "asmt_metric": true,
+    "asmt_signature": true,
+    "sys_atf_step_config": true,
+    "sys_atf_step": true,
+    "sys_client_extension_point": true,
+    "sys_script_client": true,
+    "dl_u_priority": true,
+    "sys_ui_extension_point": true,
+    "sys_ui_policy": true,
+    "sys_ui_script": true,
+    "connect_action": true,
+    "content_block": true,
+    "content_block_detail": true,
+    "content_block_programmatic": true,
+    "content_block_static": true,
+    "content_css": true,
+    "cxs_table_config": true,
+    "sys_relationship": true,
+    "sys_db_object": true,
+    "sys_email_client_template": true,
+    "sys_email_canned_message": true,
+    "sys_recipient_qualifier": true,
+    "sys_ui_context_menu": true,
+    "sys_embedded_help_content": true,
+    "sys_ui_list_control": true,
+    "cmn_map_page": true,
+    "cmn_schedule_page": true,
+    "sys_ui_style": true,
+    "cmn_timeline_page": true,
+    "sys_ui_macro": true,
+    "sys_ui_page": true,
+    "sysrule_view": true,
+    "sys_embedded_tour_step": true,
+    "scheduled_data_import": true,
+    "sys_ws_operation": true,
+    "sys_web_service": true,
+    "sys_transform_map": true,
+    "mid_selector_override": true,
+    "ecc_agent_capability": true,
+    "ecc_agent_capability_value_test": true,
+    "ecc_agent_property": true,
+    "ecc_agent_script_include": true,
+    "sys_script_ajax": true,
+    "process_step_approval": true,
+    "bsm_action": true,
+    "ci_identifier": true,
+    "discovery_classy": true,
+    "clone_cleanup_script": true,
+    "csm_field_map": true,
+    "csm_table_map": true,
+    "sys_declarative_action_assignment": true,
+    "diagrammer_action": true,
+    "sys_dictionary": true,
+    "discovery_port_probe": true,
+    "sys_ui_title": true,
+    "sys_transform_entry": true,
+    "sys_impex_map": true,
+    "sys_installation_exit": true,
+    "sys_ui_list_script_client": true,
+    "sys_ui_list_script_server": true,
+    "live_table_notification": true,
+    "mtg_definition": true,
+    "sys_navigator": true,
+    "sys_nav_link": true,
+    "pwd_cred_store": true,
+    "pwd_extension_type": true,
+    "discovery_probes": true,
+    "expert_panel_template": true,
+    "sysauto_query_builder": true,
+    "sysauto": true,
+    "sys_service_api": true,
+    "sysevent_email_style": true,
+    "chg_soc_style_rule_core": true,
+    "sys_listener_detail": true,
+    "sys_transform_script": true,
+    "item_option_new": true,
+    "sys_home": true,
+    "expert_panel_transition": true,
+    "expert_panel": true,
+    "expert_ui_policy": true,
+    "sys_app_module": true,
+    "sys_ui_module": true,
+    "sys_script_email": true,
+    "sysevent_email_template": true,
+    "sysevent_in_email_action": true,
+    "sysevent_email_action": true,
+    "sys_push_notif_act_script": true,
+    "sys_push_notif_msg_content": true,
+    "trigger_rule": true,
+    "sys_rest_message": true,
+    "scheduled_data_export": true,
+    "sys_soap_message_function": true,
+    "sys_soap_message": true,
+    "pa_scripts": true,
+    "pc_vendor_cat_item": true,
+    "sys_properties_category": true,
+    "metric_definition": true,
+    "sysauto_report": true,
+    "cmn_relative_duration": true,
+    "risk_conditions": true,
+    "cmn_schedule": true,
+    "sys_script": true,
+    "sys_extension_point": true,
+    "sys_script_fix": true,
+    "sys_processor": true,
+    "sysauto_script": true,
+    "sysevent_script_action": true,
+    "sys_script_include": true,
+    "sys_ui_action": true,
+    "sc_ic_aprvl_type_defn_staging": true,
+    "catalog_script_client": true,
+    "sc_cat_item": true,
+    "catalog_ui_policy": true,
+    "sc_cat_item_option": true,
+    "sc_cat_item_guide": true,
+    "sc_cat_item_producer": true,
+    "sc_ic_task_assign_defn_staging": true,
+    "user_criteria": true,
+    "sysrule_escalate": true,
+    "sp_ng_template": true,
+    "sp_instance": true,
+    "sp_search_source": true,
+    "sp_page": true,
+    "sp_portal": true,
+    "sp_css": true,
+    "sp_theme": true,
+    "sp_angular_provider": true,
+    "sp_widget": true,
+    "trend_definition": true,
+    "sys_ui_ng_action": true,
+    "sys_script_vtable": true,
+    "sn_templated_snip_note_template": true,
+    "sys_script_validator": true,
+    "sys_email_filter": true,
+    "sys_sg_data_item": true,
+    "sys_email_layout": true,
+    "sys_process_flow": true,
+    "sys_widgets": true,
+    "wf_element_activity": true,
+    "wf_activity_definition": true,
+    "wf_ui_policy": true
+  },
+  "Access Control": {
+    "Roles": {
+      "x_722926_quiz.quiz_user": {
+        "sys_id": "097680f71b400110bc84c843604bcb33",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638442108000
+      },
+      "x_722926_quiz.quiz_questions_user": {
+        "sys_id": "24b884bf1b400110bc84c843604bcb7a",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638442697000
+      },
+      "x_722926_quiz.quiz_admin": {
+        "sys_id": "8d7608fb1b400110bc84c843604bcbd2",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638442109000
+      },
+      "x_722926_quiz.answers_user": {
+        "sys_id": "df2a00ff1b400110bc84c843604bcb60",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638443084000
+      }
+    }
+  },
+  "Server Development": {
+    "Business Rules": {
+      "One answer must be correct": {
+        "sys_id": "262a70f71b040110bc84c843604bcb9d",
+        "sys_updated_on": "2021-12-02 17:13:20",
+        "SERVER_MOD_TIME": 1638461600000,
+        "LOCAL_MOD_TIME": 1638466771497,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771497,
+        "CURRENT_SERVER_MOD_TIME": 1638461600000
+      },
+      "4 answers per question allowed": {
+        "sys_id": "f06a24fb1bc00110bc84c843604bcbd6",
+        "sys_updated_on": "2021-12-02 15:31:44",
+        "SERVER_MOD_TIME": 1638455504000,
+        "LOCAL_MOD_TIME": 1638466771546,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771546,
+        "CURRENT_SERVER_MOD_TIME": 1638455504000
+      },
+      "Show only base-table fields": {
+        "sys_id": "e7bbd8ff1b800110bc84c843604bcbc1",
+        "sys_updated_on": "2021-12-02 13:22:14",
+        "SERVER_MOD_TIME": 1638447734000,
+        "LOCAL_MOD_TIME": 1638466771565,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771565,
+        "CURRENT_SERVER_MOD_TIME": 1638447734000
+      }
+    },
+    "Script Includes": {
+      "Quiz_Script_Include": {
+        "sys_id": "49d995331b840110bc84c843604bcbc6",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_SERVER_MOD_TIME": 1638466183000,
+        "sys_updated_on": "2021-12-02 18:29:43",
+        "SERVER_MOD_TIME": 1638466183000,
+        "LOCAL_MOD_TIME": 1638469698766,
+        "CURRENT_LOCAL_MOD_TIME": 1638469698766,
+        "lastmodified": 1638469783657
+      }
+    }
+  },
+  "Miscellaneous": {
+    "Dictionary Entries": {
+      "Number": {
+        "sys_id": "91b2503b1b800110bc84c843604bcb37",
+        "sys_updated_on": "2021-12-02 13:45:34",
+        "SERVER_MOD_TIME": 1638449134000,
+        "LOCAL_MOD_TIME": 1638466771524,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771524,
+        "CURRENT_SERVER_MOD_TIME": 1638449134000
+      },
+      "answer": {
+        "sys_id": "d4bd1c331bc00110bc84c843604bcb89",
+        "sys_updated_on": "2021-12-02 13:34:11",
+        "SERVER_MOD_TIME": 1638448451000,
+        "LOCAL_MOD_TIME": 1638466771565,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771565,
+        "CURRENT_SERVER_MOD_TIME": 1638448451000
+      },
+      "Question": {
+        "sys_id": "96506cf31bc00110bc84c843604bcb0a",
+        "sys_updated_on": "2021-12-02 13:45:34",
+        "SERVER_MOD_TIME": 1638449134000,
+        "LOCAL_MOD_TIME": 1638466771576,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771576,
+        "CURRENT_SERVER_MOD_TIME": 1638449134000
+      },
+      "x_722926_quiz_quiz_questions": {
+        "sys_id": "7cb84cbf1b400110bc84c843604bcb3f",
+        "sys_updated_on": "2021-12-02 11:58:17",
+        "SERVER_MOD_TIME": 1638442697000,
+        "LOCAL_MOD_TIME": 1638466771591,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771591,
+        "CURRENT_SERVER_MOD_TIME": 1638442697000
+      },
+      "x_722926_quiz_answers": {
+        "sys_id": "2a2e1c731bc00110bc84c843604bcbc7",
+        "sys_updated_on": "2021-12-02 13:32:04",
+        "SERVER_MOD_TIME": 1638448324000,
+        "LOCAL_MOD_TIME": 1638466771619,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771619,
+        "CURRENT_SERVER_MOD_TIME": 1638448324000
+      },
+      "Class": {
+        "sys_id": "81b84cbf1b400110bc84c843604bcb6c",
+        "sys_updated_on": "2021-12-02 11:58:18",
+        "SERVER_MOD_TIME": 1638442698000,
+        "LOCAL_MOD_TIME": 1638466771703,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771703,
+        "CURRENT_SERVER_MOD_TIME": 1638442698000
+      },
+      "correct": {
+        "sys_id": "c8ed9cff1b800110bc84c843604bcb11",
+        "sys_updated_on": "2021-12-02 13:32:04",
+        "SERVER_MOD_TIME": 1638448324000,
+        "LOCAL_MOD_TIME": 1638466771707,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466771707,
+        "CURRENT_SERVER_MOD_TIME": 1638448324000
+      },
+      "Number_fe2e5c731bc00110bc84c843604bcb20": {
+        "sys_id": "fe2e5c731bc00110bc84c843604bcb20",
+        "sys_updated_on": "2021-12-02 13:32:05",
+        "SERVER_MOD_TIME": 1638448325000,
+        "LOCAL_MOD_TIME": 1638466772075,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466772075,
+        "CURRENT_SERVER_MOD_TIME": 1638448325000
+      },
+      "Question_f4fd58731bc00110bc84c843604bcb6d": {
+        "sys_id": "f4fd58731bc00110bc84c843604bcb6d",
+        "sys_updated_on": "2021-12-02 13:34:11",
+        "SERVER_MOD_TIME": 1638448451000,
+        "LOCAL_MOD_TIME": 1638466772155,
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466772155,
+        "CURRENT_SERVER_MOD_TIME": 1638448451000
+      }
+    }
+  },
+  "Navigation": {
+    "Modules (Mobile)": {
+      "Quiz questions": {
+        "sys_id": "30b84cbf1b400110bc84c843604bcb17",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770621,
+        "CURRENT_SERVER_MOD_TIME": 1638442697000
+      },
+      "Answers": {
+        "sys_id": "e22e1c731bc00110bc84c843604bcba0",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770621,
+        "CURRENT_SERVER_MOD_TIME": 1638448324000
+      }
+    },
+    "Modules": {
+      "Quiz questions": {
+        "sys_id": "78b84cbf1b400110bc84c843604bcb10",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638442697000
+      },
+      "Answers": {
+        "sys_id": "a62e1c731bc00110bc84c843604bcb9d",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638448324000
+      }
+    }
+  },
+  "Data Model": {
+    "Tables": {
+      "Answers": {
+        "sys_id": "abad5c331bc00110bc84c843604bcb74",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638448325000
+      },
+      "Quiz questions": {
+        "sys_id": "d6c6047f1b400110bc84c843604bcbce",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_LOCAL_MOD_TIME": 1638466770620,
+        "CURRENT_SERVER_MOD_TIME": 1638448047000
+      }
+    }
+  },
+  "Forms & UI": {
+    "UI Pages": {
+      "Quiz_UI": {
+        "sys_id": "89f691bf1b440110bc84c843604bcb32",
+        "LIVE": true,
+        "UNCHANGED": true,
+        "CURRENT_SERVER_MOD_TIME": 1638464747000,
+        "sys_updated_on": "2021-12-02 18:05:47",
+        "SERVER_MOD_TIME": 1638464747000,
+        "LOCAL_MOD_TIME": 1638468341951,
+        "CURRENT_LOCAL_MOD_TIME": 1638469748728,
+        "lastmodified": 1638468347321
+      }
+    }
+  }
+}

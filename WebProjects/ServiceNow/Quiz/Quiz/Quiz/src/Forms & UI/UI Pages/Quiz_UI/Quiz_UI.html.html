@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly
+  trim="false"
+  xmlns:j="jelly:core"
+  xmlns:g="glide"
+  xmlns:j2="null"
+  xmlns:g2="null"
+>
+  <style>
+    #main {
+      background: lightpink;
+      justify-content: center;
+    }
+
+    #quiz {
+      block-size: 200px;
+      background-color: white;
+      width: 150px;
+      height: 150px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      margin: 100px;
+    }
+
+    .score {
+    }
+  </style>
+
+  <body>
+    <div id="main" class="container"></div>
+    <div class="row"></div>
+
+    <div
+      class="center-block col-md-4"
+      style="float: none; background-color: white"
+    >
+      <p class="question">Question</p>
+      <button type="button" class="btn btn-primary btn-block">Answer1</button>
+      <button type="button" class="btn btn-primary btn-block">Answer2</button>
+      <button type="button" class="btn btn-primary btn-block">Answer3</button>
+      <button type="button" class="btn btn-primary btn-block">Answer4</button>
+    </div>
+  </body>
+</j:jelly>
